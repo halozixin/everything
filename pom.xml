@@ -2,24 +2,22 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.zh</groupId>
-    <artifactId>everything-plus</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+<groupId>com.zh</groupId>
+<artifactId>LeetCode-190312</artifactId>
+<version>1.0-SNAPSHOT</version>
 
-
-    <!--项目名称-->
-    <name>everything-plus</name>
+<!--项目名称-->
+<name>everything-plus</name>
 
 
-    <properties>
-        <encoding>UTF-8</encoding>
-        <java.version>1.8</java.version>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
-        <mavern.compiler.source>${java.version}</mavern.compiler.source>
-    </properties>
+<properties>
+    <encoding>UTF-8</encoding>
+    <java.version>1.8</java.version>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
+    <mavern.compiler.source>${java.version}</mavern.compiler.source>
+</properties>
 
 
 
@@ -32,7 +30,17 @@
         <version>1.18.6</version>
     </dependency>
 
+    <dependency>
+        <groupId>com.h2database</groupId>
+        <artifactId>h2</artifactId>
+        <version>1.4.197</version>
+    </dependency>
 
+    <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>druid</artifactId>
+        <version>1.1.12</version>
+    </dependency>
 
     <!--数据库以及驱动-->
     <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
@@ -45,36 +53,33 @@
     <!--配置构建信息-->
 
 
-    </dependencies>
+</dependencies>
 
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.1.0</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <addExtension>true</addExtension>
-                            <classpathPrefix>lib</classpathPrefix>
-                            <mainClass>com.zh.everything.cmd.EveryThingCmdApp</mainClass>
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+        </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>3.1.0</version>
+            <configuration>
+                <archive>
+                    <manifest>
+                        <addClasspath>true</addClasspath>
+                        <addExtension>true</addExtension>
+                        <classpathPrefix>lib</classpathPrefix>
+                        <mainClass>com.zh.everything.cmd.EveryThingCmdApp</mainClass>
 
-                        </manifest>
-                    </archive>
-                </configuration>
-            </plugin>
-        </plugins>
+                    </manifest>
+                </archive>
+            </configuration>
+        </plugin>
+    </plugins>
 
-    </build>
-
-
-
+</build>
 
 </project>

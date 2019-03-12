@@ -6,6 +6,5 @@ package com.zh.everything.cmd;
  */
 public class EveryThingCmdApp {
     public static void main(String[] args) {
-
     }
 }
