@@ -11,4 +11,12 @@ public class Condition {
     private String name;
 
     private String fileType;
+
+    private Integer limit;
+    /*
+    检索文件信息排序规则
+     */
+    private boolean orderByAsc;
+
+
 }

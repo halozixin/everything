@@ -1,5 +1,5 @@
 # --创建数据库
-create database if not exists everything_plus;
+# create database if not exists everything_plus;
 
 drop table if exists file_index;
 create table if not exists file_index(

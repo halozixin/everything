@@ -29,5 +29,15 @@ public enum  FileType {
         return FileType.OTHER;
     }
 
-
+    /**
+     * 根据文件类型获取文件类型对象
+     */
+    public static FileType lookupByName(String extend){
+        for (FileType fileType : FileType.values()){
+            if (fileType.name().equals(extend)){
+                return fileType;
+            }
+        }
+        return FileType.OTHER;
+    }
 }
