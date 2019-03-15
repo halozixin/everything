@@ -1,12 +1,11 @@
 package com.zh.everything.core.dao.impl;
 
-import com.zh.everything.core.dao.FIleIndexDao;
+import com.zh.everything.core.dao.FileIndexDao;
 import com.zh.everything.core.model.Condition;
 import com.zh.everything.core.model.FileType;
 import com.zh.everything.core.model.Thing;
 
 import javax.sql.DataSource;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,7 +17,7 @@ import java.util.List;
  * @auther zh
  * @data 2019/3/12 21:34
  */
-public class FileIndexDaoIndex implements FIleIndexDao {
+public class FileIndexDaoIndex implements FileIndexDao {
 
     private final DataSource dataSource;
 
@@ -42,6 +41,8 @@ public class FileIndexDaoIndex implements FIleIndexDao {
             statement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            releaseRespurce(null,statement,connection);
         }
     }
 
@@ -81,31 +82,40 @@ public class FileIndexDaoIndex implements FIleIndexDao {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            if (resultSet != null) {
-                try {
-                    resultSet.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (statement != null) {
-                try {
-                    statement.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
+            releaseRespurce(resultSet,statement,connection);
         }
         return list;
     }
 
+
+
+
+
+
+
+    private void releaseRespurce(ResultSet resultSet,PreparedStatement statement,Connection connection){
+        if (resultSet != null) {
+            try {
+                resultSet.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        if (statement != null) {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        if (connection != null) {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
 
 
